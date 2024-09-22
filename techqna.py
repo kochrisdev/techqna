@@ -14,7 +14,8 @@ st.write("This app helps collect feedback on solution architecture, technology-s
 
 # Clear all fields function
 def clear_all_fields():
-    st.session_state.reset = True
+    for key in st.session_state.keys():
+        st.session_state[key] = ""
 
 # Basic information
 st.subheader("Basic Information")
@@ -172,4 +173,3 @@ if st.button("Save Data as CSV"):
 # Button to clear all fields
 if st.button("Clear All Answers"):
     clear_all_fields()
-    st.experimental_rerun()  # Rerun the app to reflect cleared state
