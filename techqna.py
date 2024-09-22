@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
 
-# Initialize session state to store answers
-if 'reset' not in st.session_state:
-    st.session_state.reset = False
+# Initialize session state to store form data if not already present
+if 'form_data' not in st.session_state:
+    st.session_state.form_data = {}
+
 
 # Title of the app
 st.title("Consulting Feedback Data Collection")
@@ -12,10 +13,10 @@ st.title("Consulting Feedback Data Collection")
 st.write("This app helps collect feedback on solution architecture, technology-stack review, infrastructure readiness, "
          "development team performance, and business-technology alignment. Sample answers are provided for guidance.")
 
-# Clear all fields function
+# Function to clear all fields
 def clear_all_fields():
-    for key in st.session_state.keys():
-        st.session_state[key] = ""
+    st.session_state.form_data = {}  # Reset all session state values to empty
+    st.session_state.clear_form = True  # Indicate that the form has been cleared
 
 # Basic information
 st.subheader("Basic Information")
@@ -173,3 +174,4 @@ if st.button("Save Data as CSV"):
 # Button to clear all fields
 if st.button("Clear All Answers"):
     clear_all_fields()
+    st.experimental_rerun()  # Rerun the app to reflect cleared state
