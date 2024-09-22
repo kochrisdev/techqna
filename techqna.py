@@ -130,6 +130,6 @@ df = pd.DataFrame([answers])
 
 # Button to save the data as a CSV
 if st.button("Save Data as CSV"):
-    df.to_csv("/mnt/data/client_feedback_data.csv", index=False)
+    df.to_csv("client_feedback_data.csv", index=False)
     st.success("Data saved successfully! You can download it below.")
     st.download_button(label="Download CSV", data=df.to_csv(), mime="text/csv", file_name="client_feedback_data.csv")
