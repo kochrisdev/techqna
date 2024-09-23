@@ -15,7 +15,6 @@ st.write("This app helps collect feedback on solution architecture, technology-s
 # Function to clear all fields
 def clear_all_fields():
     st.session_state.form_data = {}  # Reset all session state values to empty
-    st.experimental_rerun()  # Rerun the app to reflect cleared state
 
 # Basic information
 st.subheader("Basic Information")
