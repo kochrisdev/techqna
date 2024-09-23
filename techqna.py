@@ -18,7 +18,8 @@ def clear_all_fields():
 
 # Basic information
 st.subheader("Basic Information")
-name = st.text_input("Name", value=st.session_state.form_data.get("name", ""))
+# name = st.text_input("Name", value=st.session_state.form_data.get("name", ""))
+name = st.text_input("Name", value="" if st.session_state.clear else st.session_state.form_data.get("name", ""))
 position = st.text_input("Position", value=st.session_state.form_data.get("position", ""))
 department = st.text_input("Department", value=st.session_state.form_data.get("department", ""))
 contact_email = st.text_input("Contact Email", value=st.session_state.form_data.get("contact_email", ""))
